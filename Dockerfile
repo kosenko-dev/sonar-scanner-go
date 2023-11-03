@@ -1,5 +1,5 @@
-FROM java:alpine
-ENV SONAR_SCANNER_VERSION 4.2.0.1873
+FROM java:openjdk-8-jdk-alpine
+ENV SONAR_SCANNER_VERSION 3.4.0.1729
 RUN apk update && apk add --no-cache wget && \
     wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip && \
     unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION} && \
@@ -14,7 +14,7 @@ RUN apk add --no-cache \
 # - docker run --rm debian:stretch grep '^hosts:' /etc/nsswitch.conf
 RUN [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf
 
-ENV GOLANG_VERSION 1.13.4
+ENV GOLANG_VERSION 1.18
 
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \

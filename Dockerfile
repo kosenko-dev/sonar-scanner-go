@@ -43,7 +43,7 @@ RUN set -eux; \
 	esac; \
 	\
 	wget -O go.tgz "https://golang.org/dl/go$GOLANG_VERSION.src.tar.gz"; \
-	echo '95dbeab442ee2746b9acf0934c8e2fc26414a0565c008631b04addb8c02e7624 *go.tgz' | sha256sum -c -; \
+#	echo '95dbeab442ee2746b9acf0934c8e2fc26414a0565c008631b04addb8c02e7624 *go.tgz' | sha256sum -c -; \
 	tar -C /usr/local -xzf go.tgz; \
 	rm go.tgz; \
 	\

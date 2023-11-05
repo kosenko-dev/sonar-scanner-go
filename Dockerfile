@@ -1,4 +1,4 @@
-FROM openjdk:11-ea-jdk-slim
+FROM alpine:3.14
 ENV SONAR_SCANNER_VERSION 4.2.0.1873
 RUN apk update && apk add --no-cache wget && \
     wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip && \
@@ -7,7 +7,7 @@ RUN apk update && apk add --no-cache wget && \
     cd /usr/bin && ln -s /sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner sonar-scanner
 
 RUN apk add --no-cache \
-		ca-certificates
+		openjdk11 ca-certificates
 
 # set up nsswitch.conf for Go's "netgo" implementation
 # - https://github.com/golang/go/blob/go1.9.1/src/net/conf.go#L194-L275

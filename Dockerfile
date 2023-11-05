@@ -1,5 +1,5 @@
-FROM openjdk:8-alpine
-ENV SONAR_SCANNER_VERSION 3.4.0.1729
+FROM openjdk:11-alpine
+ENV SONAR_SCANNER_VERSION 4.2.0.1873
 RUN apk update && apk add --no-cache wget && \
     wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip && \
     unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION} && \

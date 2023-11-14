@@ -8,6 +8,10 @@ RUN apk update && apk add --no-cache wget && \
 
 RUN apk add --no-cache \
 		openjdk11 ca-certificates
+  
+RUN [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf
+
+ENV GOLANG_VERSION 1.13.4
 
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
